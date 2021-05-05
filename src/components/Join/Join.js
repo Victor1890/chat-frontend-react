@@ -9,7 +9,7 @@ export default function SignIn() {
 
   return (
     <div className='joinOuterContainer'>
-      <form className='joinInnerContainer'>
+      <div className='joinInnerContainer'>
         <h1 className='heading'>Victor Chat React</h1>
         <p className='heading_paragraph'>
           Favor en introducir su nombre de usuario y el ID de la sala de reunión
@@ -34,9 +34,11 @@ export default function SignIn() {
           onClick={(e) => (!name || !room ? e.preventDefault() : null)}
           to={`/chat?name=${name}&room=${room}`}
         >
-          <button className={"button mt-20"}>Registrarse</button>
+          <button className={"button mt-20"} type='submit'>
+            Registrarse
+          </button>
         </Link>
-      </form>
+      </div>
     </div>
   );
 }
