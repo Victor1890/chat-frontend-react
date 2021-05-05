@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
-import { CONNECTION } from "../../config/config";
+
 import TextContainer from "../TextContainer/TextContainer";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
@@ -9,7 +9,7 @@ import Input from "../Input/Input";
 
 import "./Chat.css";
 
-const ENDPOINT = CONNECTION || "http://localhost:5000/";
+const ENDPOINT = "https://project-chat-application.herokuapp.com/";
 
 let socket;
 
@@ -33,7 +33,7 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-  }, [location.search]);
+  }, [ENDPOINT, location.search]);
 
   useEffect(() => {
     socket.on("message", (message) => {
